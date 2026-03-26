@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(C:/Users/dmart/PycharmProjects/ArUco_DistanceEstimation/.venv/Scripts/python.exe -c \"import cv2; print\\(cv2.__version__\\)\" 2>&1)"
-    ]
-  }
-}
