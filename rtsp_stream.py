@@ -83,7 +83,7 @@ class RTSPStream:
 def main():
     import sys
 
-    url = sys.argv[1] if len(sys.argv) > 1 else "rtsp://192.168.1.100:8080/h264_ulaw.sdp"
+    url = sys.argv[1] if len(sys.argv) > 1 else "rtsp://10.43.41.58:8554/stream"
     print(f"Connecting to: {url}")
     print("Press 'q' to quit.")
 
