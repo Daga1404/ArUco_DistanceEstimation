@@ -83,7 +83,7 @@ class RTSPStream:
 def main():
     import sys
 
-    url = sys.argv[1] if len(sys.argv) > 1 else "rtsp://192.168.1.100:8080/h264_ulaw.sdp"
+    url = sys.argv[1] if len(sys.argv) > 1 else "rtsp://10.43.41.58:8554/stream"
     print(f"Connecting to: {url}")
     print("Press 'q' to quit.")
 
@@ -92,6 +92,13 @@ def main():
             frame = stream.read()
             if frame is None:
                 continue
+
+            h, w = frame.shape[:2]
+            max_width = 1280
+            if w > max_width:
+                scale = max_width / w
+                frame = cv2.resize(frame, (max_width, int(h * scale)))
+
             cv2.imshow("Phone Camera", frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
